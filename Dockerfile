@@ -16,3 +16,6 @@ COPY yarn.lock yarn.lock
 RUN yarn install --immutable --inline-builds
 
 COPY . .
+
+EXPOSE 3333
+CMD ["yarn", "start"]
