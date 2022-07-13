@@ -21,8 +21,9 @@ COPY yarn.lock yarn.lock
 # manager on the host side.
 RUN yarn install --immutable --inline-builds
 
-# add app
-COPY . ./
+COPY . .
 
-EXPOSE 3333
-CMD ["yarn", "start"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
