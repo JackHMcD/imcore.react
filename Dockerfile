@@ -1,6 +1,12 @@
 FROM node:14
 
-WORKDIR /tmp/imcore
+WORKDIR /app
+
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
 # Copy `yarn.lock` and all `package.json` files from the first build stage in
 # preparation for `yarn install`.
@@ -15,7 +21,8 @@ COPY yarn.lock yarn.lock
 # manager on the host side.
 RUN yarn install --immutable --inline-builds
 
-COPY . .
+# add app
+COPY . ./
 
 EXPOSE 3333
 CMD ["yarn", "start"]
