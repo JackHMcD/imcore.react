@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/armhf
           push: true
-          tags: jackhmcd/yttv:latest
+          tags: jackhmcd/imcorereact:latest
